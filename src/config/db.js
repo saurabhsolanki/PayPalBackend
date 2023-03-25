@@ -1,7 +1,10 @@
 const mongoose=require("mongoose")
 mongoose.set('strictQuery', false);
 
-mongoose.connect("mongodb://127.0.0.1:27017/paypal",{
+require("dotenv").config();
+const mongo_url = process.env.mongo_url || "";
+
+mongoose.connect(mongo_url,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then((res)=>{

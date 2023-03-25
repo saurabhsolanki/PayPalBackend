@@ -4,6 +4,8 @@ require("./config/db")
 const cors =require("cors")
 const tasks=require('./Routes/task.route')
 const sprint=require('./Routes/week.route')
+require("dotenv").config();
+const PORT = process.env.PORT || 8080;
 
 
 app.use(express.urlencoded({extended:true}))
@@ -14,4 +16,4 @@ app.get('/', (req,res)=> res.send('hello'))
 app.use("/task",tasks)
 app.use("/sprint",sprint)
 
-app.listen(8080,()=> {console.log('server started at port 8080')})
+app.listen(PORT,()=> {console.log('server started at port 8080')})
